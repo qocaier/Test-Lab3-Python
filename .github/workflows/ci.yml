@@ -24,6 +24,8 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run tests with coverage check
+        env:
+          PYTHONPATH: .
         run: |
-          PYTHONPATH=. coverage run -m pytest
+          coverage run -m pytest
           coverage report --fail-under=80
